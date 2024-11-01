@@ -20,16 +20,4 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```bash
 https://huggingface.co/facebook/esm2_t6_8M_UR50D
 ```
-# Citation
-```bash
-@article{lin2023evolutionary,
-  title={Evolutionary-scale prediction of atomic-level protein structure with a language model},
-  author={Lin, Zeming and Akin, Halil and Rao, Roshan and Hie, Brian and Zhu, Zhongkai and Lu, Wenting and Smetanin, Nikita and Verkuil, Robert and Kabeli, Ori and Shmueli, Yaniv and others},
-  journal={Science},
-  volume={379},
-  number={6637},
-  pages={1123--1130},
-  year={2023},
-  publisher={American Association for the Advancement of Science}
-}
-```
+
