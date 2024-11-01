@@ -82,7 +82,7 @@ if len(train_data_list) > 0:
     edge_features_shape = sample_data.edge_attr.shape[1]
     bert_feature_dim = sample_data.bert_features.shape[1]
 else:
-    raise ValueError("训练集为空，无法定义模型。")
+    raise ValueError("The training set is empty, so the model cannot be defined.")
 
 model = GraphTransformer(in_channels=node_features_shape, hidden_channels=128, out_channels=64, num_layers=2,
                          num_heads=4, edge_dim=edge_features_shape, bert_feature_dim=bert_feature_dim, dropout=0.3,
@@ -156,7 +156,6 @@ print(f'Test Specificity: {test_specificity}')
 print(f'Test MCC: {test_mcc}')
 print(f'Test AUC: {test_auc}')
 
-# 记录结果
 results = {
     'Test Loss': [round(test_loss, 4)],
     'Test Accuracy': [round(test_accuracy, 4)],
