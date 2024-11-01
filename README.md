@@ -13,8 +13,10 @@ We provide the source code and you can find them [Code](https://github.com/GGCL7
 
 # Predict 3D protein structure using ESMfold
 To predict the 3D structure of a protein using ESMfold, you can call the following API:
-`bash
+```bash
 https://api.esmatlas.com/foldSequence/v1/pdb/
-
-
-
+```
+# ESM-2 Language model embeddings
+```bash
+https://huggingface.co/facebook/esm2_t36_3B_UR50D
+```
