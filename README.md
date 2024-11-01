@@ -18,5 +18,5 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```
 # ESM-2 Language model embeddings
 ```bash
-https://huggingface.co/facebook/esm2_t36_3B_UR50D
+https://huggingface.co/facebook/esm2_t6_8M_UR50D
 ```
