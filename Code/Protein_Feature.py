@@ -144,8 +144,8 @@ def generate_features_protein_bert(sequences, tokenizer, model):
 
 
 
-tokenizer = AutoTokenizer.from_pretrained("/Users/ggcl7/Desktop/ESM_Pre_model", trust_remote_code=True)
-model = AutoModel.from_pretrained("/Users/ggcl7/Desktop/ESM_Pre_model", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("ESM_Pre_model", trust_remote_code=True)
+model = AutoModel.from_pretrained("ESM_Pre_model", trust_remote_code=True)
 def process_pdb_and_sequence(pdb_file, sequence, distance_threshold=8.0):
     residues = parse_pdb(pdb_file)
     ca_coords = get_ca_coordinates(residues)
