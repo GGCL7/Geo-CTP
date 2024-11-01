@@ -73,7 +73,7 @@ if len(train_data_list) > 0:
     edge_features_shape = sample_data.edge_attr.shape[1]
     bert_feature_dim = sample_data.bert_features.shape[1]
 else:
-    raise ValueError("训练集为空，无法定义模型。")
+    raise ValueError("The training set is empty, so the model cannot be defined.")
 
 
 model = GraphTransformer(in_channels=node_features_shape, hidden_channels=128, out_channels=64, num_layers=2,
@@ -131,7 +131,7 @@ def evaluate(model, loader, clf_loss_fn, contrastive_loss_fn):
     accuracy = accuracy_score(all_labels, all_preds)
     return total_loss / len(loader), accuracy
 
-# 训练和评估模型
+
 num_epochs = 100
 best_test_accuracy = 0.0
 best_model_state = None
@@ -140,7 +140,7 @@ for epoch in range(num_epochs):
     train_loss, train_accuracy = train(model, train_loader, optimizer, clf_loss_fn, contrastive_loss_fn)
     test_loss, test_accuracy = evaluate(model, test_loader, clf_loss_fn, contrastive_loss_fn)
 
-    # 保存测试准确率最高的模型
+
     if test_accuracy > best_test_accuracy:
         best_test_accuracy = test_accuracy
         best_model_state = model.state_dict()
@@ -148,7 +148,7 @@ for epoch in range(num_epochs):
 
     print(f'Epoch {epoch + 1}, Train Loss: {train_loss}, Train Accuracy: {train_accuracy}, Test Loss: {test_loss}, Test Accuracy: {test_accuracy}')
 
-print(f'最高测试准确率: {best_test_accuracy}')
+print(f'Highest test accuracy: {best_test_accuracy}')
 
 # model.load_state_dict(torch.load('best_model.pth'))
 # model.eval()
