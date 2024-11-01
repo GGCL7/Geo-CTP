@@ -10,3 +10,11 @@ This CTP prediction tool developed by teams from the University of Hong Kong and
 We provided our dataset and you can find them [Dataset](https://github.com/GGCL7/Geo-CTP/tree/main/Dataset)
 # Source code
 We provide the source code and you can find them [Code](https://github.com/GGCL7/Geo-CTP/tree/main/Code)
+
+# Predict 3D Protein Structure using ESMfold
+To predict the 3D structure of a protein using ESMfold, you can call the following API:
+```bash
+https://api.esmatlas.com/foldSequence/v1/pdb/
+
+
+
