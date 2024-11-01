@@ -96,7 +96,7 @@ def create_node_features(residues):
     return np.array(node_features)
 
 
-# 示例使用
+
 def parse_pdb(pdb_file):
     parser = PDBParser()
     structure = parser.get_structure('protein', pdb_file)
@@ -128,7 +128,7 @@ def create_edge_features(dist_matrix, adjacency_matrix):
     # print("Edge Features:", edge_features.shape)
     return edge_index, edge_features
 
-# 示例PDB文件处理
+
 
 def generate_features_protein_bert(sequences, tokenizer, model):
     features = []
