@@ -20,9 +20,9 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```bash
 https://huggingface.co/facebook/esm2_t6_8M_UR50D
 ```
-## Predicting CTPs and their functionalities
+# Predicting CTPs and their functionalities
 
-### Stage 1: Predict whether a peptide sequence is a CTP
+## Stage 1: Predict whether a peptide sequence is a CTP
 
 To predict whether a given peptide sequence is a Cancer Therapy Peptide (CTP), use the following command:
 
@@ -33,7 +33,7 @@ Output example
 ```bash
 Predicted Class: CTP
 ```
-### Stage 2: Predict the functionalities of the CTP
+## Stage 2: Predict the functionalities of the CTP
 If the peptide is predicted as a CTP, use the following command to predict its six functionalities:
 
 ```bash
