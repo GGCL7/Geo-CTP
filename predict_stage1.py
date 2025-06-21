@@ -2,20 +2,20 @@ import argparse
 import warnings
 import torch
 from torch_geometric.data import Data
-from Code.Protein_Feature import process_pdb_and_sequence
-from Code.graph_transformer_layer import GraphTransformer
+from Code.Stage1.Protein_Feature import process_pdb_and_sequence
+from Code.Stage1.graph_transformer_layer import GraphTransformer
 from Bio import BiopythonWarning
 
 warnings.simplefilter('ignore', BiopythonWarning)
 
 
 def predict_ctp(model, sequence, pdb_file, distance_threshold=8.0):
-    # 处理PDB文件和序列
+
     edge_index, edge_features, node_features, sequence_features = process_pdb_and_sequence(
         pdb_file, sequence, distance_threshold
     )
 
-    # 创建数据对象
+
     x = torch.tensor(node_features, dtype=torch.float)
     edge_index = torch.tensor(edge_index, dtype=torch.long)
     edge_attr = torch.tensor(edge_features, dtype=torch.float)
@@ -25,7 +25,7 @@ def predict_ctp(model, sequence, pdb_file, distance_threshold=8.0):
     data = Data(x=x, edge_index=edge_index, edge_attr=edge_attr)
     data.bert_features = bert_features
 
-    # 模型预测
+
     model.eval()
     with torch.no_grad():
         output, _, _ = model(data)
@@ -50,7 +50,7 @@ def main():
         num_layers=2,
         num_heads=4,
         edge_dim=1,
-        bert_feature_dim=320,
+        bert_feature_dim=480,
         dropout=0.3,
         layer_norm=True,
         batch_norm=True
