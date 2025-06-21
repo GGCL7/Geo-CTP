@@ -18,7 +18,7 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```
 # ESM-2 Language model embeddings
 ```bash
-https://huggingface.co/facebook/esm2_t6_8M_UR50D
+https://huggingface.co/docs/transformers/en/model_doc/esm
 ```
 # Predicting CTPs and their functionalities
 
@@ -49,4 +49,18 @@ Membrane Targeted: 0.9683
 Cell Penetrating Peptides: 0.0210
 Membrane Lysis: 0.0000
 Induce Apoptosis: 0.0001
+```
+## 📄 Citations
+If you use ESM-2 Language model in your work, please cite this paper:
+```bash
+@article{lin2023evolutionary,
+  title={Evolutionary-scale prediction of atomic-level protein structure with a language model},
+  author={Lin, Zeming and Akin, Halil and Rao, Roshan and Hie, Brian and Zhu, Zhongkai and Lu, Wenting and Smetanin, Nikita and Verkuil, Robert and Kabeli, Ori and Shmueli, Yaniv and others},
+  journal={Science},
+  volume={379},
+  number={6637},
+  pages={1123--1130},
+  year={2023},
+  publisher={American Association for the Advancement of Science}
+}
 ```
