@@ -2,9 +2,9 @@ import argparse
 import torch
 from torch_geometric.data import Data
 import warnings
-from Code.Protein_Feature import process_pdb_and_sequence
-from Code.graph_transformer_layer_stage2 import GraphTransformer
-from Code.loss_function import BCEFocalLoss
+from Code.Stage2.Protein_Feature import process_pdb_and_sequence
+from Code.Stage2.graph_transformer_layer_stage2 import GraphTransformer
+from Code.Stage2.loss_function import BCEFocalLoss
 from Bio import BiopythonWarning
 
 warnings.simplefilter('ignore', BiopythonWarning)
