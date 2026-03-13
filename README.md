@@ -96,6 +96,8 @@ python3 Stage2/train.py \
   --learning-rate 1e-4 \
   --contrastive-temperature 0.1 \
   --contrastive-weight 1.0 \
+  --label-contrastive-temperature 0.1 \
+  --label-contrastive-weight 0.5 \
   --focal-gamma 2.0 \
   --save-path checkpoints/stage2_best_model.pth
 ```
@@ -112,7 +114,9 @@ Main arguments:
 - `--num-layers`, `--num-heads`, `--hidden-channels`, `--out-channels`
 - `--projection-dim`, `--dropout`
 - `--learning-rate`, `--batch-size`, `--epochs`
-- `--contrastive-temperature`, `--contrastive-weight`, `--focal-gamma`
+- `--contrastive-temperature`, `--contrastive-weight`: sequence-structure contrastive settings
+- `--label-contrastive-temperature`, `--label-contrastive-weight`: label-level supervised contrastive settings
+- `--focal-gamma`: focal loss parameter for the multi-label classification term
 - `--save-path`
 
 
