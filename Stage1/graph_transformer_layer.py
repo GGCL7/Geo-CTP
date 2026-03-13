@@ -108,15 +108,7 @@ class SupervisedContrastiveLoss(nn.Module):
 
 
 class EdgeAwareMultiHeadGraphAttention(nn.Module):
-    """
-    Edge-aware graph attention that updates node messages using both node and edge states.
 
-    Shapes:
-    - node_states: [N, C]
-    - edge_index: [2, E]
-    - edge_states: [E, C]
-    - attention logits/weights: [E, H]
-    """
 
     def __init__(self, hidden_dim, num_heads, dropout):
         super().__init__()
@@ -155,10 +147,6 @@ class EdgeAwareMultiHeadGraphAttention(nn.Module):
         attention = _segment_softmax(scores, src, self.num_heads)
         attention = self.dropout(attention)
 
-        # The paper term alpha_ij * V_ij * N_j is implemented as:
-        # 1) project normalized neighbor node states with value_proj -> V_ij
-        # 2) reshape the normalized neighbor state N_j into per-head chunks
-        # 3) take an element-wise product V_ij * N_j, then weight by alpha_ij
         neighbor_state = node_states[dst].view(-1, self.num_heads, self.head_dim)
         neighbor_message = value[dst] * neighbor_state
         weighted_message = attention.unsqueeze(-1) * neighbor_message
