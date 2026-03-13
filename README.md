@@ -8,8 +8,7 @@ Cancer therapy peptides (CTPs), as multifunctional peptides, possess the ability
 
 # Dataset for this study
 We provided our dataset and you can find them [Dataset](https://github.com/GGCL7/Geo-CTP/tree/main/Dataset)
-# Source code
-We provide the source code and you can find them [Code](https://github.com/GGCL7/Geo-CTP/tree/main/Code)
+
 
 # Predict 3D protein structure using ESMfold
 To predict the 3D structure of a protein using ESMfold, you can call the following API:
