@@ -20,6 +20,103 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```bash
 https://huggingface.co/docs/transformers/en/model_doc/esm
 ```
+## Requirements
+
+- Python 3.10+
+- PyTorch
+- PyTorch Geometric
+- `torch_scatter`
+- `transformers`
+- `biopython`
+- `scikit-learn`
+- `numpy`
+
+## Stage1 Training
+
+`Stage1/train.py` is a command-line script for binary classification.
+
+Example:
+
+```bash
+python3 Stage1/train.py \
+  --train-fa Dataset/1.0/train.txt \
+  --test-fa Dataset/1.0/test.txt \
+  --pdb-root data/pdb \
+  --esm-model-path pretrained/esm_model \
+  --epochs 200 \
+  --batch-size 32 \
+  --num-layers 2 \
+  --num-heads 8 \
+  --hidden-channels 128 \
+  --out-channels 64 \
+  --projection-dim 128 \
+  --dropout 0.2 \
+  --learning-rate 1e-4 \
+  --temperature 0.2 \
+  --weight-seqstr 0.6 \
+  --weight-label 0.4 \
+  --save-path checkpoints/stage1_best_model.pth
+```
+
+Main arguments:
+
+- `--train-fa`, `--test-fa`: train/test sequence files
+- `--pdb-root`: directory of residue-level PDB files
+- `--esm-model-path`: ESM model directory or Hugging Face model id
+- `--esm-device`: device for sequence embedding extraction
+- `--train-device`: device for GeoCTP training
+- `--distance-threshold`: graph edge cutoff distance
+- `--num-layers`, `--num-heads`, `--hidden-channels`, `--out-channels`
+- `--projection-dim`, `--dropout`
+- `--learning-rate`, `--batch-size`, `--epochs`
+- `--temperature`, `--weight-seqstr`, `--weight-label`
+- `--save-path`
+
+## Stage2 Training
+
+`Stage2/train.py` is a command-line script for multi-label classification.
+
+Example:
+
+```bash
+python3 Stage2/train.py \
+  --train-dir Dataset/Stage2/train_test/train \
+  --test-dir Dataset/Stage2/train_test/test \
+  --pdb-root data/pdb \
+  --label-file Dataset/Stage2/multi_label_sequences.txt \
+  --esm-model-path pretrained/esm_model \
+  --epochs 100 \
+  --batch-size 64 \
+  --num-layers 2 \
+  --num-heads 4 \
+  --hidden-channels 128 \
+  --out-channels 64 \
+  --projection-dim 128 \
+  --dropout 0.3 \
+  --learning-rate 1e-4 \
+  --contrastive-temperature 0.1 \
+  --contrastive-weight 1.0 \
+  --focal-gamma 2.0 \
+  --save-path checkpoints/stage2_best_model.pth
+```
+
+Main arguments:
+
+- `--train-dir`, `--test-dir`: train/test multi-file fasta directories
+- `--label-file`: sequence-to-label mapping file
+- `--pdb-root`: directory of residue-level PDB files
+- `--esm-model-path`: ESM model directory or Hugging Face model id
+- `--esm-device`: device for sequence embedding extraction
+- `--train-device`: device for GeoCTP training
+- `--distance-threshold`: graph edge cutoff distance
+- `--num-layers`, `--num-heads`, `--hidden-channels`, `--out-channels`
+- `--projection-dim`, `--dropout`
+- `--learning-rate`, `--batch-size`, `--epochs`
+- `--contrastive-temperature`, `--contrastive-weight`, `--focal-gamma`
+- `--save-path`
+
+
+
 ```
 ## 📄 Citations
 If you use ESM-2 Language model in your work, please cite this paper:
