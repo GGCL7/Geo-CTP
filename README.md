@@ -20,35 +20,6 @@ https://api.esmatlas.com/foldSequence/v1/pdb/
 ```bash
 https://huggingface.co/docs/transformers/en/model_doc/esm
 ```
-# Predicting CTPs and their functionalities
-
-## Stage 1: Predict whether a peptide sequence is a CTP
-
-To predict whether a given peptide sequence is a Cancer Therapy Peptide (CTP), use the following command:
-
-```bash
-python predict_stage1.py -i "KWKSFLKTFKSAKKTVAHTAAKAISS" -p example.pdb
-```
-Output example
-```bash
-Predicted Class: CTP
-```
-## Stage 2: Predict the functionalities of the CTP
-If the peptide is predicted as a CTP, use the following command to predict its six functionalities:
-
-```bash
-python predict_stage2.py -i "KWKSFLKTFKSAKKTVAHTAAKAISS" -p example.pdb
-```
-Output example
-
-```bash
-Prediction Results:
-Tumor Active Peptide: 0.9758
-Cancer Targeted Peptides: 0.0031
-Membrane Targeted: 0.9683
-Cell Penetrating Peptides: 0.0210
-Membrane Lysis: 0.0000
-Induce Apoptosis: 0.0001
 ```
 ## 📄 Citations
 If you use ESM-2 Language model in your work, please cite this paper:
